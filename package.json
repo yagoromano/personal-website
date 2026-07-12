@@ -1,7 +1,13 @@
 {
   "name": "personal-website",
+  "description": "Personal portfolio site built with Astro, React, and TypeScript",
   "type": "module",
   "version": "0.0.1",
+  "license": "MIT",
+  "author": {
+    "name": "Yago Romano",
+    "url": "https://github.com/yagoromano"
+  },
   "engines": {
     "node": ">=22.12.0"
   },

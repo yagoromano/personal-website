@@ -1,43 +1,36 @@
-# Astro Starter Kit: Minimal
+# Personal Portfolio Site
+
+Personal portfolio for Yago Romano, built with [Astro](https://astro.build) and React/TypeScript islands. Showcases projects pulled from GitHub, a resume download, and links to contact info.
+
+## Stack
+
+- **Astro** for the static shell, only two components hydrate as client-side JavaScript
+- **React + TypeScript** for the dark mode toggle and the filterable project grid
+- Plain CSS with custom properties for theming, no CSS framework
+
+## Features
+
+- Dark mode by default, with a toggle that persists across visits
+- Project cards pulled from a single data file, tag-filterable
+- One-click resume download, with a script to re-sync the PDF from its source when it's updated
+- No backend, no database, fully static
+
+## Running locally
 
 ```sh
-npm create astro@latest -- --template minimal
+npm install
+npm run dev
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+Then open `http://localhost:4321`.
 
-## 🚀 Project Structure
+| Command | What it does |
+| --- | --- |
+| `npm run dev` | Starts the local dev server |
+| `npm run build` | Builds the production site to `./dist/` |
+| `npm run preview` | Serves the production build locally |
+| `npm run sync-resume` | Copies the latest resume PDF into `public/resume/` |
 
-Inside of your Astro project, you'll see the following folders and files:
+## License
 
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
-
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
-
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+The code in this repository is MIT licensed, see [LICENSE](./LICENSE). Personal content (resume, bio, project descriptions, name and likeness) is not covered by that license and remains all rights reserved.
