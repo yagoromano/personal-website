@@ -1,0 +1,41 @@
+---
+import { Github, Linkedin } from "lucide-astro";
+import ResumeButton from "./ResumeButton.astro";
+import { SITE } from "../data/site";
+---
+
+<section id="contact" class="contact">
+  <div class="container contact-inner">
+    <h2>Contact</h2>
+    <p class="section-intro">Reach out or take a look at my work through the links below.</p>
+    <div class="contact-links">
+      <a href={SITE.github} target="_blank" rel="noopener noreferrer" class="btn">
+        <Github size={18} />
+        GitHub
+      </a>
+      <a href={SITE.linkedin} target="_blank" rel="noopener noreferrer" class="btn">
+        <Linkedin size={18} />
+        LinkedIn
+      </a>
+      <ResumeButton />
+    </div>
+  </div>
+</section>
+
+<style>
+  h2 {
+    font-size: 2rem;
+    margin-bottom: var(--space-2);
+  }
+
+  .section-intro {
+    color: var(--text-muted);
+    margin-bottom: var(--space-5);
+  }
+
+  .contact-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+  }
+</style>

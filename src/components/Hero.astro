@@ -1,0 +1,59 @@
+---
+import ResumeButton from "./ResumeButton.astro";
+import { SITE } from "../data/site";
+---
+
+<section id="about" class="hero">
+  <div class="container hero-inner">
+    <h1>{SITE.name}</h1>
+    <p class="tagline">Software engineer, ML/RL projects, agent tooling.</p>
+    <p class="bio">
+      I build systems that sit at the intersection of machine learning and practical
+      software engineering, from reinforcement learning agents to production tool
+      layers for AI assistants. This site is itself built with Astro and React
+      islands, hydrating only the interactive pieces and shipping everything else
+      as static markup.
+    </p>
+    <div class="cta-row">
+      <a href="#projects" class="btn btn-primary">View Projects</a>
+      <ResumeButton />
+      <a href="#contact" class="btn">Contact</a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    background-image: radial-gradient(circle at 1px 1px, var(--border) 1px, transparent 0);
+    background-size: 24px 24px;
+  }
+
+  .hero-inner {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    max-width: 720px;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  .tagline {
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    color: var(--accent);
+  }
+
+  .bio {
+    color: var(--text-muted);
+    font-size: 1.05rem;
+  }
+
+  .cta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+    margin-top: var(--space-3);
+  }
+</style>
