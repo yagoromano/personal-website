@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" role="img" aria-label="An autonomous vehicle driving away in the right lane scans a camouflaged stop sign ahead on the right with lidar">
+  <defs>
+    <linearGradient id="av-sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0c0e12"/>
+      <stop offset="1" stop-color="#151922"/>
+    </linearGradient>
+    <linearGradient id="av-road" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#262b35"/>
+      <stop offset="1" stop-color="#171b22"/>
+    </linearGradient>
+    <linearGradient id="av-body" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#404859"/>
+      <stop offset="1" stop-color="#20242e"/>
+    </linearGradient>
+    <linearGradient id="av-glass" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#7ea2ff"/>
+      <stop offset="1" stop-color="#3b6fe0"/>
+    </linearGradient>
+    <radialGradient id="av-cone" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(405 236) scale(230)">
+      <stop offset="0" stop-color="#5b8cff" stop-opacity="0.32"/>
+      <stop offset="1" stop-color="#5b8cff" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="av-vignette" cx="0.5" cy="0.45" r="0.75">
+      <stop offset="0.6" stop-color="#000000" stop-opacity="0"/>
+      <stop offset="1" stop-color="#000000" stop-opacity="0.35"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="640" height="360" fill="url(#av-sky)"/>
+
+  <!-- road receding to a vanishing point -->
+  <path d="M60 360 L580 360 L360 150 L320 150 Z" fill="url(#av-road)"/>
+  <path d="M320 150 L60 360" stroke="#3a4150" stroke-width="2" opacity="0.55"/>
+  <path d="M360 150 L580 360" stroke="#3a4150" stroke-width="2" opacity="0.55"/>
+  <!-- dashed center line -->
+  <g stroke="#fbbf24" stroke-linecap="round" opacity="0.7">
+    <line x1="337" y1="158" x2="337" y2="164" stroke-width="2"/>
+    <line x1="334" y1="182" x2="334" y2="192" stroke-width="3"/>
+    <line x1="330" y1="214" x2="330" y2="230" stroke-width="5"/>
+    <line x1="325" y1="262" x2="325" y2="286" stroke-width="7"/>
+    <line x1="321" y1="322" x2="321" y2="356" stroke-width="9"/>
+  </g>
+
+  <!-- lidar scan beam aimed at the sign -->
+  <path d="M405 236 L478 83 L538 130 Z" fill="url(#av-cone)"/>
+
+  <!-- camouflaged stop sign ahead on the right shoulder -->
+  <g>
+    <rect x="478" y="180" width="7" height="22" fill="#3a3f48"/>
+    <rect x="478" y="180" width="3" height="22" fill="#4a505c"/>
+    <g>
+      <path d="M444 141 l17,-17 h22 l17,17 v22 l-17,17 h-22 l-17,-17 z" fill="#c0392b" stroke="#e6e8eb" stroke-width="3"/>
+      <path d="M444 141 l17,-17 h22 l17,17 v22 l-17,17 h-22 l-17,-17 z" fill="none" stroke="#ff6b5b" stroke-width="1" opacity="0.4"/>
+      <text x="472" y="157" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#f4f4f5">STOP</text>
+      <!-- adversarial camouflage patches -->
+      <g opacity="0.9">
+        <rect x="449" y="131" width="10" height="10" rx="1.5" fill="#4a4f58" transform="rotate(14 454 136)"/>
+        <rect x="486" y="162" width="9" height="9" rx="1.5" fill="#6b7280" transform="rotate(-20 490 166)"/>
+        <rect x="490" y="132" width="8" height="8" rx="1.5" fill="#374151" transform="rotate(32 494 136)"/>
+      </g>
+    </g>
+  </g>
+
+  <!-- detection ray locking onto the sign -->
+  <path d="M410 233 L455 166" stroke="#5b8cff" stroke-width="1.8" stroke-dasharray="2 7" opacity="0.95"/>
+  <circle cx="455" cy="166" r="4" fill="#5b8cff"/>
+  <circle cx="455" cy="166" r="9" fill="none" stroke="#5b8cff" stroke-width="1.5" opacity="0.5"/>
+
+  <!-- vehicle in the right lane, seen from behind, driving away up the road -->
+  <g>
+    <ellipse cx="405" cy="316" rx="82" ry="12" fill="#000000" opacity="0.35"/>
+    <!-- wheels peeking -->
+    <rect x="348" y="300" width="18" height="12" rx="3" fill="#0c0e12"/>
+    <rect x="444" y="300" width="18" height="12" rx="3" fill="#0c0e12"/>
+    <!-- body -->
+    <path d="M345 306 Q342 258 365 246 Q374 240 405 240 Q436 240 445 246 Q468 258 465 306 Z" fill="url(#av-body)" stroke="#4a5468" stroke-opacity="0.4"/>
+    <!-- rear window -->
+    <path d="M369 250 Q405 245 441 250 L434 270 L376 270 Z" fill="url(#av-glass)" opacity="0.85"/>
+    <!-- high-mount brake light -->
+    <rect x="394" y="255" width="22" height="5" rx="2" fill="#f87171"/>
+    <!-- tail lights -->
+    <rect x="350" y="276" width="22" height="13" rx="4" fill="#c0392b"/>
+    <rect x="438" y="276" width="22" height="13" rx="4" fill="#c0392b"/>
+    <!-- bumper + plate -->
+    <rect x="345" y="297" width="120" height="12" rx="5" fill="#20242e"/>
+    <rect x="392" y="291" width="26" height="11" rx="2" fill="#c7ccd4"/>
+    <!-- roof lidar sensor -->
+    <rect x="391" y="234" width="28" height="9" rx="3" fill="#2a2f3a"/>
+    <circle cx="405" cy="238" r="6" fill="#5b8cff"/>
+    <circle cx="405" cy="238" r="6" fill="none" stroke="#7ea2ff" stroke-width="1"/>
+  </g>
+
+  <!-- status card, moved to the left now that the car is on the right -->
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, monospace">
+    <rect x="44" y="299" width="214" height="48" rx="10" fill="#12151b" fill-opacity="0.92" stroke="#f87171" stroke-opacity="0.55"/>
+    <circle cx="64" cy="316" r="4" fill="#f87171"/>
+    <text x="78" y="320" font-size="11" fill="#f87171">adversarial patch detected</text>
+    <circle cx="64" cy="337" r="4" fill="#4ade80"/>
+    <text x="78" y="341" font-size="11" fill="#4ade80">defense: braking engaged</text>
+  </g>
+
+  <!-- titles -->
+  <text x="44" y="54" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="15" fill="#e6e8eb">CARLA · ROS 2 · YOLOv8 perception</text>
+  <text x="44" y="76" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="13" fill="#5b8cff">IEEE ISCAS 2025 · first author</text>
+
+  <rect width="640" height="360" fill="url(#av-vignette)"/>
+</svg>

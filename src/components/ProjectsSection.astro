@@ -1,13 +1,19 @@
 ---
-import ProjectGrid from "./ProjectGrid";
-import { projects } from "../data/projects";
+import ProjectCard from "./ProjectCard.astro";
+import { getCollection } from "astro:content";
+
+const projects = (await getCollection("projects"))
+  .filter((p) => !p.data.gridHidden)
+  .sort((a, b) => a.data.order - b.data.order);
 ---
 
 <section id="projects" class="projects-section">
   <div class="container">
     <h2>Projects</h2>
     <p class="section-intro">A selection of machine learning and reinforcement learning projects I have built.</p>
-    <ProjectGrid client:visible projects={projects} />
+    <div class="project-grid">
+      {projects.map((project) => <ProjectCard project={project} />)}
+    </div>
   </div>
 </section>
 

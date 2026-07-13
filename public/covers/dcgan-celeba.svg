@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" role="img" aria-label="Abstract progression from random noise to generated faces">
+  <defs>
+    <radialGradient id="face" cx="50%" cy="42%" r="65%">
+      <stop offset="0%" stop-color="#e8c9a8"/>
+      <stop offset="100%" stop-color="#b98a5e"/>
+    </radialGradient>
+    <pattern id="noise" width="8" height="8" patternUnits="userSpaceOnUse">
+      <rect width="8" height="8" fill="#1a1d23"/>
+      <rect x="0" y="0" width="4" height="4" fill="#2a2f38"/>
+      <rect x="4" y="4" width="4" height="4" fill="#232830"/>
+    </pattern>
+  </defs>
+  <rect width="640" height="360" fill="#12151b"/>
+
+  <!-- epoch 1: pure noise -->
+  <g>
+    <rect x="48" y="110" width="120" height="140" rx="10" fill="url(#noise)" stroke="#ffffff" stroke-opacity="0.08"/>
+    <text x="108" y="278" text-anchor="middle" font-family="ui-monospace, monospace" font-size="13" fill="#9aa1ab">epoch 1</text>
+  </g>
+
+  <!-- arrow -->
+  <path d="M186 180h36m0 0l-9-7m9 7l-9 7" stroke="#5b8cff" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+
+  <!-- epoch 25: blurry face -->
+  <g>
+    <rect x="248" y="110" width="120" height="140" rx="10" fill="url(#noise)" stroke="#ffffff" stroke-opacity="0.08"/>
+    <ellipse cx="308" cy="178" rx="38" ry="48" fill="url(#face)" opacity="0.45"/>
+    <text x="308" y="278" text-anchor="middle" font-family="ui-monospace, monospace" font-size="13" fill="#9aa1ab">epoch 25</text>
+  </g>
+
+  <!-- arrow -->
+  <path d="M386 180h36m0 0l-9-7m9 7l-9 7" stroke="#5b8cff" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+
+  <!-- epoch 100: clear face -->
+  <g>
+    <rect x="448" y="110" width="120" height="140" rx="10" fill="#1a1d23" stroke="#ffffff" stroke-opacity="0.08"/>
+    <ellipse cx="508" cy="180" rx="40" ry="50" fill="url(#face)"/>
+    <ellipse cx="508" cy="146" rx="42" ry="26" fill="#3d2f24"/>
+    <circle cx="494" cy="172" r="4.5" fill="#2b2118"/>
+    <circle cx="522" cy="172" r="4.5" fill="#2b2118"/>
+    <path d="M496 205q12 9 24 0" stroke="#8a5a3b" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <text x="508" y="278" text-anchor="middle" font-family="ui-monospace, monospace" font-size="13" fill="#9aa1ab">epoch 100</text>
+  </g>
+
+  <text x="48" y="62" font-family="ui-monospace, monospace" font-size="15" fill="#e6e8eb">G(z): noise → faces</text>
+  <text x="48" y="84" font-family="ui-monospace, monospace" font-size="13" fill="#5b8cff">DCGAN · CelebA</text>
+</svg>

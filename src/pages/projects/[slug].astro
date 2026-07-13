@@ -1,0 +1,177 @@
+---
+import { getCollection, render } from "astro:content";
+import { ArrowLeft, ExternalLink, FileText } from "lucide-astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Nav from "../../components/Nav.astro";
+import Footer from "../../components/Footer.astro";
+
+export async function getStaticPaths() {
+  const projects = await getCollection("projects");
+  return projects.map((entry) => ({
+    params: { slug: entry.id },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+---
+
+<BaseLayout title={`${entry.data.title} · Yago Romano`}>
+  <Nav />
+  <main class="container project-detail">
+    <a href={entry.data.gridHidden ? "/#publications" : "/#projects"} class="back-link">
+      <ArrowLeft size={16} />
+      {entry.data.gridHidden ? "Back to publications" : "Back to projects"}
+    </a>
+
+    <h1>{entry.data.title}</h1>
+    <p class="lede">{entry.data.description}</p>
+    <div class="project-tags">
+      {entry.data.tags.map((tag) => <span class="tag-chip">{tag}</span>)}
+    </div>
+
+    <div class="actions">
+      {entry.data.repoUrl && (
+        <a href={entry.data.repoUrl} target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+          <ExternalLink size={16} />
+          View on GitHub
+        </a>
+      )}
+      {entry.data.paper?.url && (
+        <a href={entry.data.paper.url} target="_blank" rel="noopener noreferrer" class={entry.data.repoUrl ? "btn" : "btn btn-primary"}>
+          <FileText size={16} />
+          View Paper
+        </a>
+      )}
+      {entry.data.demoUrl && (
+        <a href={entry.data.demoUrl} target="_blank" rel="noopener noreferrer" class="btn">
+          Live Demo
+        </a>
+      )}
+    </div>
+
+    <img src={entry.data.cover} alt={`${entry.data.title} illustration`} class="cover" />
+
+    {entry.data.paper && (
+      <div class="paper-callout">
+        <p class="paper-label">Published research</p>
+        <p class="paper-title">{entry.data.paper.title}</p>
+        <p class="paper-venue">{entry.data.paper.venue}</p>
+        <p class="paper-authors">{entry.data.paper.authors}</p>
+        {entry.data.paper.url && (
+          <a href={entry.data.paper.url} target="_blank" rel="noopener noreferrer" class="paper-link">
+            <FileText size={15} />
+            View on arXiv
+          </a>
+        )}
+      </div>
+    )}
+
+    <div class="prose">
+      <Content />
+    </div>
+  </main>
+  <Footer />
+</BaseLayout>
+
+<style>
+  .project-detail {
+    max-width: 720px;
+    padding-top: var(--space-7);
+    padding-bottom: var(--space-7);
+  }
+
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    text-decoration: none;
+    margin-bottom: var(--space-5);
+  }
+
+  .back-link:hover {
+    color: var(--text);
+  }
+
+  h1 {
+    font-size: 2.25rem;
+    margin-bottom: var(--space-3);
+  }
+
+  .lede {
+    color: var(--text-muted);
+    font-size: 1.05rem;
+    margin-bottom: var(--space-3);
+  }
+
+  .project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    margin-bottom: var(--space-4);
+  }
+
+  .actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+    margin-bottom: var(--space-5);
+  }
+
+  .cover {
+    display: block;
+    width: 100%;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    margin-bottom: var(--space-5);
+  }
+
+  .paper-callout {
+    background-color: var(--bg-elevated);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--accent);
+    border-radius: 8px;
+    padding: var(--space-4);
+    margin-bottom: var(--space-5);
+  }
+
+  .paper-label {
+    color: var(--accent);
+    font-size: 0.75rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-bottom: var(--space-2);
+  }
+
+  .paper-title {
+    font-weight: 700;
+    margin-bottom: var(--space-1);
+  }
+
+  .paper-venue {
+    color: var(--text-muted);
+    margin-bottom: var(--space-1);
+  }
+
+  .paper-authors {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+  }
+
+  .paper-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--accent);
+    font-size: 0.9rem;
+    text-decoration: none;
+    margin-top: var(--space-3);
+  }
+
+  .paper-link:hover {
+    text-decoration: underline;
+  }
+</style>

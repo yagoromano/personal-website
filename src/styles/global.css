@@ -146,13 +146,6 @@ section {
   border-color: var(--accent);
 }
 
-.tag-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-2);
-  margin-bottom: var(--space-4);
-}
-
 .tag-chip {
   display: inline-flex;
   align-items: center;
@@ -163,18 +156,7 @@ section {
   color: var(--text-muted);
   font-size: 0.8rem;
   font-family: var(--font-body);
-  cursor: pointer;
-}
-
-button.tag-chip:hover {
-  border-color: var(--accent);
-  color: var(--text);
-}
-
-.tag-chip-active {
-  background-color: var(--accent);
-  border-color: var(--accent);
-  color: #ffffff;
+  cursor: default;
 }
 
 .project-grid {
@@ -186,11 +168,25 @@ button.tag-chip:hover {
 .project-card {
   display: flex;
   flex-direction: column;
-  gap: var(--space-2);
-  padding: var(--space-4);
   border-radius: 12px;
   border: 1px solid var(--border);
   background-color: var(--bg-elevated);
+  overflow: hidden;
+}
+
+.project-card-body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding: var(--space-4);
+}
+
+.project-cover {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-bottom: 1px solid var(--border);
 }
 
 .project-card h3 {
@@ -227,4 +223,108 @@ button.tag-chip:hover {
 
 .project-link:hover {
   text-decoration: underline;
+}
+
+.resume-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-4);
+  z-index: 100;
+}
+
+.resume-modal {
+  position: relative;
+  width: min(800px, 100%);
+  height: min(85vh, 900px);
+  background-color: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: var(--space-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.resume-modal-close {
+  position: absolute;
+  top: var(--space-3);
+  right: var(--space-3);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background-color: transparent;
+  color: var(--text);
+  cursor: pointer;
+  z-index: 1;
+}
+
+.resume-modal-close:hover {
+  border-color: var(--accent);
+}
+
+.resume-modal-frame {
+  flex: 1;
+  width: 100%;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background-color: #ffffff;
+}
+
+.resume-modal-fallback {
+  align-self: center;
+  color: var(--accent);
+  font-size: 0.85rem;
+  text-decoration: none;
+}
+
+.resume-modal-fallback:hover {
+  text-decoration: underline;
+}
+
+.prose h2 {
+  font-size: 1.4rem;
+  margin-top: var(--space-6);
+  margin-bottom: var(--space-3);
+}
+
+.prose h2:first-child {
+  margin-top: 0;
+}
+
+.prose p {
+  color: var(--text);
+  line-height: 1.7;
+  margin-bottom: var(--space-3);
+}
+
+.prose ul,
+.prose ol {
+  color: var(--text);
+  line-height: 1.7;
+  padding-left: var(--space-5);
+  margin-bottom: var(--space-3);
+}
+
+.prose li {
+  margin-bottom: var(--space-2);
+}
+
+.prose a {
+  color: var(--accent);
+}
+
+.prose code {
+  background-color: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 0.1em 0.35em;
+  font-size: 0.9em;
 }

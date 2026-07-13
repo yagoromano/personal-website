@@ -1,5 +1,5 @@
 ---
-import ResumeButton from "./ResumeButton.astro";
+import ResumeModal from "./ResumeModal";
 import { SITE } from "../data/site";
 ---
 
@@ -16,7 +16,7 @@ import { SITE } from "../data/site";
     </p>
     <div class="cta-row">
       <a href="#projects" class="btn btn-primary">View Projects</a>
-      <ResumeButton />
+      <ResumeModal client:load />
       <a href="#contact" class="btn">Contact</a>
     </div>
   </div>

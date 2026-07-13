@@ -1,6 +1,6 @@
 ---
 import { Github, Linkedin } from "lucide-astro";
-import ResumeButton from "./ResumeButton.astro";
+import ResumeModal from "./ResumeModal";
 import { SITE } from "../data/site";
 ---
 
@@ -17,7 +17,7 @@ import { SITE } from "../data/site";
         <Linkedin size={18} />
         LinkedIn
       </a>
-      <ResumeButton />
+      <ResumeModal client:load />
     </div>
   </div>
 </section>

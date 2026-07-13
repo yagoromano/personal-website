@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" role="img" aria-label="Benchmark chart comparing language models playing UNO">
+  <rect width="640" height="360" fill="#12151b"/>
+
+  <!-- chart panel -->
+  <rect x="48" y="96" width="380" height="216" rx="12" fill="#1a1d23" stroke="#ffffff" stroke-opacity="0.08"/>
+  <!-- gridlines -->
+  <g stroke="#ffffff" stroke-opacity="0.06">
+    <path d="M80 148H400M80 192H400M80 236H400"/>
+  </g>
+  <!-- baseline -->
+  <path d="M80 280H400" stroke="#9aa1ab" stroke-opacity="0.4"/>
+
+  <!-- bars: pairs (cloze, counterfactual) per model -->
+  <g>
+    <rect x="102" y="216" width="30" height="64" rx="4" fill="#5b8cff" opacity="0.55"/>
+    <rect x="138" y="196" width="30" height="84" rx="4" fill="#5b8cff"/>
+    <rect x="208" y="188" width="30" height="92" rx="4" fill="#4ade80" opacity="0.55"/>
+    <rect x="244" y="156" width="30" height="124" rx="4" fill="#4ade80"/>
+    <rect x="314" y="172" width="30" height="108" rx="4" fill="#fbbf24" opacity="0.55"/>
+    <rect x="350" y="140" width="30" height="140" rx="4" fill="#fbbf24"/>
+  </g>
+  <g font-family="ui-monospace, monospace" font-size="12" fill="#9aa1ab" text-anchor="middle">
+    <text x="135" y="300">llama-8B</text>
+    <text x="241" y="300">mistral-24B</text>
+    <text x="347" y="300">llama-70B</text>
+  </g>
+
+  <!-- legend / config panel -->
+  <g font-family="ui-monospace, monospace" font-size="12">
+    <rect x="452" y="96" width="140" height="120" rx="10" fill="#1a1d23" stroke="#ffffff" stroke-opacity="0.08"/>
+    <rect x="466" y="114" width="12" height="12" rx="3" fill="#5b8cff" opacity="0.55"/>
+    <text x="486" y="125" fill="#9aa1ab">cloze</text>
+    <rect x="466" y="138" width="12" height="12" rx="3" fill="#5b8cff"/>
+    <text x="486" y="149" fill="#9aa1ab">counterfactual</text>
+    <text x="466" y="180" fill="#4ade80">torchrun · SLURM</text>
+    <text x="466" y="200" fill="#9aa1ab">nodes: 4 × GPU</text>
+  </g>
+
+  <text x="48" y="56" font-family="ui-monospace, monospace" font-size="15" fill="#e6e8eb">Benchmarking LLMs at UNO</text>
+  <text x="48" y="78" font-family="ui-monospace, monospace" font-size="13" fill="#5b8cff">cloze vs counterfactual prompting</text>
+</svg>

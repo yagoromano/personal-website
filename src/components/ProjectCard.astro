@@ -1,0 +1,52 @@
+---
+import { ArrowRight, ExternalLink } from "lucide-astro";
+import type { CollectionEntry } from "astro:content";
+
+interface Props {
+  project: CollectionEntry<"projects">;
+}
+
+const { project } = Astro.props;
+const href = `/projects/${project.id}/`;
+---
+
+<div class="project-card">
+  <a href={href}>
+    <img src={project.data.cover} alt={`${project.data.title} illustration`} loading="lazy" class="project-cover" />
+  </a>
+  <div class="project-card-body">
+    <h3><a href={href} class="project-title-link">{project.data.title}</a></h3>
+    <p class="project-description">{project.data.description}</p>
+    <div class="project-tags">
+      {project.data.tags.map((tag) => <span class="tag-chip">{tag}</span>)}
+    </div>
+    <div class="project-links">
+      <a href={href} class="project-link">
+        <ArrowRight size={16} />
+        Read More
+      </a>
+      {project.data.repoUrl && (
+        <a href={project.data.repoUrl} target="_blank" rel="noopener noreferrer" class="project-link">
+          <ExternalLink size={16} />
+          View on GitHub
+        </a>
+      )}
+      {project.data.demoUrl && (
+        <a href={project.data.demoUrl} target="_blank" rel="noopener noreferrer" class="project-link">
+          Live Demo
+        </a>
+      )}
+    </div>
+  </div>
+</div>
+
+<style>
+  .project-title-link {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .project-title-link:hover {
+    text-decoration: underline;
+  }
+</style>

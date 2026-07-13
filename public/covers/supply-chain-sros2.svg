@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" role="img" aria-label="A trojanized package exfiltrates keystore credentials over DNS to an attacker who then hijacks an autonomous vehicle">
+  <defs>
+    <linearGradient id="sc-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0c0e12"/>
+      <stop offset="1" stop-color="#151922"/>
+    </linearGradient>
+    <linearGradient id="sc-pkg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#3a4150"/>
+      <stop offset="1" stop-color="#242a34"/>
+    </linearGradient>
+    <radialGradient id="sc-vignette" cx="0.5" cy="0.45" r="0.75">
+      <stop offset="0.6" stop-color="#000000" stop-opacity="0"/>
+      <stop offset="1" stop-color="#000000" stop-opacity="0.35"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="640" height="360" fill="url(#sc-bg)"/>
+
+  <!-- stage labels -->
+  <text x="44" y="52" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="15" fill="#e6e8eb">Secure ROS 2 supply chain attack</text>
+  <text x="44" y="74" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="13" fill="#5b8cff">IEEE MILCOM 2025 · equal contribution</text>
+
+  <!-- stage 1: trojaned .deb package -->
+  <g>
+    <rect x="52" y="150" width="108" height="96" rx="10" fill="url(#sc-pkg)" stroke="#f87171" stroke-opacity="0.55"/>
+    <path d="M52 172 h108" stroke="#f87171" stroke-opacity="0.35"/>
+    <text x="106" y="200" text-anchor="middle" font-family="ui-monospace, monospace" font-size="18" font-weight="bold" fill="#e6e8eb">.deb</text>
+    <text x="106" y="222" text-anchor="middle" font-family="ui-monospace, monospace" font-size="11" fill="#9aa1ab">sros2 (trojaned)</text>
+    <!-- warning bug -->
+    <circle cx="150" cy="162" r="11" fill="#f87171"/>
+    <text x="150" y="166" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#12151b">!</text>
+    <text x="106" y="270" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10.5" fill="#6b7280">create_keystore()</text>
+  </g>
+
+  <!-- keystore being read -->
+  <g>
+    <circle cx="106" cy="300" r="7" fill="none" stroke="#fbbf24" stroke-width="2"/>
+    <rect x="103" y="300" width="6" height="10" rx="1" fill="#fbbf24"/>
+    <text x="122" y="304" font-family="ui-monospace, monospace" font-size="10.5" fill="#9aa1ab">keystore .pem .key</text>
+  </g>
+
+  <!-- DNS exfiltration: dotted chunks flowing right -->
+  <path d="M168 198 C 250 198, 250 150, 336 150" fill="none" stroke="#5b8cff" stroke-width="2" stroke-dasharray="2 8" opacity="0.9"/>
+  <g font-family="ui-monospace, monospace" font-size="10" fill="#5b8cff">
+    <text x="196" y="140">DNS exfil</text>
+  </g>
+  <g fill="#5b8cff">
+    <rect x="210" y="168" width="26" height="13" rx="3" opacity="0.9"/>
+    <rect x="248" y="160" width="26" height="13" rx="3" opacity="0.65"/>
+    <rect x="286" y="153" width="26" height="13" rx="3" opacity="0.4"/>
+  </g>
+  <text x="210" y="196" font-family="ui-monospace, monospace" font-size="9" fill="#6b7280">base64 chunks</text>
+
+  <!-- stage 2: attacker server reassembles -->
+  <g>
+    <rect x="340" y="120" width="92" height="64" rx="8" fill="#1a1d23" stroke="#ffffff" stroke-opacity="0.1"/>
+    <rect x="352" y="132" width="68" height="8" rx="2" fill="#5b8cff" opacity="0.7"/>
+    <rect x="352" y="146" width="52" height="8" rx="2" fill="#4a5160"/>
+    <rect x="352" y="160" width="60" height="8" rx="2" fill="#4a5160"/>
+    <text x="386" y="200" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10.5" fill="#9aa1ab">attacker listener</text>
+    <!-- reconstructed key -->
+    <circle cx="386" cy="98" r="8" fill="none" stroke="#4ade80" stroke-width="2"/>
+    <rect x="382" y="98" width="8" height="12" rx="1" fill="#4ade80"/>
+  </g>
+
+  <!-- attacker rejoins and spoofs: arrow to vehicle -->
+  <path d="M432 150 h44 m0 0 l-9 -6 m9 6 l-9 6" stroke="#f87171" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  <text x="452" y="140" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#f87171">spoof</text>
+
+  <!-- stage 3: hijacked vehicle -->
+  <g>
+    <ellipse cx="540" cy="228" rx="60" ry="10" fill="#000000" opacity="0.35"/>
+    <path d="M486 208 q4-22 30-25 l12-15 q8-9 21-9 h18 q13 0 20 10 l10 14 q20 3 22 25 l0 9 q0 6-7 6 H493 q-7 0-7-6 z" fill="url(#sc-pkg)" stroke="#f87171" stroke-opacity="0.5"/>
+    <path d="M528 182 l11-13 q5-6 12-6 h17 q8 0 12 7 l9 12 q-30-5-60 0 z" fill="#5b8cff" opacity="0.55"/>
+    <rect x="518" y="166" width="20" height="8" rx="3" fill="#2a2f3a"/>
+    <circle cx="528" cy="170" r="5" fill="#f87171"/>
+    <circle cx="514" cy="222" r="13" fill="#0c0e12" stroke="#5b6472" stroke-width="3"/>
+    <circle cx="566" cy="222" r="13" fill="#0c0e12" stroke="#5b6472" stroke-width="3"/>
+    <text x="540" y="252" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10.5" fill="#f87171">QCar2 hijacked</text>
+  </g>
+
+  <rect width="640" height="360" fill="url(#sc-vignette)"/>
+</svg>
