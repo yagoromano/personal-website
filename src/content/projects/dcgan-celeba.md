@@ -4,7 +4,7 @@ description: "Deep Convolutional GAN in TensorFlow trained on CelebA to generate
 repoUrl: "https://github.com/yagoromano/dcgan-celeba"
 tags: ["Python", "TensorFlow", "Generative Models"]
 cover: "/covers/dcgan-celeba.svg"
-order: 2
+order: 3
 ---
 
 ## What it is

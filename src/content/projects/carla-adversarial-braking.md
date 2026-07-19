@@ -4,7 +4,7 @@ description: "Research code behind a first-author IEEE ISCAS 2025 paper on defen
 repoUrl: "https://github.com/yagoromano/carla-adversarial-braking"
 tags: ["Python", "Adversarial ML", "ROS 2", "Simulation"]
 cover: "/covers/carla-adversarial-braking.svg"
-order: 3
+order: 1
 paper:
   title: "Mitigation of Camouflaged Adversarial Attacks in Autonomous Vehicles: A Case Study Using CARLA Simulator"
   venue: "IEEE International Symposium on Circuits and Systems (ISCAS) 2025"

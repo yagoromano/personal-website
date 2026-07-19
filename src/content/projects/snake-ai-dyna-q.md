@@ -4,7 +4,7 @@ description: "Classic Snake game implemented with the Dyna-Q reinforcement learn
 repoUrl: "https://github.com/yagoromano/snake-ai-dyna-q"
 tags: ["Python", "Reinforcement Learning"]
 cover: "/covers/snake-ai-dyna-q.svg"
-order: 1
+order: 4
 ---
 
 ## What it is
