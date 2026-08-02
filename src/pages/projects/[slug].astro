@@ -17,12 +17,12 @@ const { entry } = Astro.props;
 const { Content } = await render(entry);
 ---
 
-<BaseLayout title={`${entry.data.title} · Yago Romano`}>
+<BaseLayout title={`${entry.data.title} · Yago Romano`} description={entry.data.description}>
   <Nav />
   <main class="container project-detail">
-    <a href={entry.data.gridHidden ? "/#publications" : "/#projects"} class="back-link">
+    <a href="/#projects" class="back-link">
       <ArrowLeft size={16} />
-      {entry.data.gridHidden ? "Back to publications" : "Back to projects"}
+      Back to projects
     </a>
 
     <h1>{entry.data.title}</h1>

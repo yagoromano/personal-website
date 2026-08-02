@@ -4,7 +4,8 @@ description: "Deep Convolutional GAN in TensorFlow trained on CelebA to generate
 repoUrl: "https://github.com/yagoromano/dcgan-celeba"
 tags: ["Python", "TensorFlow", "Generative Models"]
 cover: "/covers/dcgan-celeba.svg"
-order: 3
+order: 4
+meta: "TensorFlow"
 ---
 
 ## What it is
@@ -17,10 +18,10 @@ Two networks train against each other. The generator maps random noise vectors t
 
 ## Design choices
 
-- Single-notebook format, so the full pipeline from data loading to generated samples reads top to bottom.
-- Built to run on Google Colab or any GPU-enabled environment without local setup.
-- Training progress is visualized by sampling the generator at fixed intervals, which makes mode collapse and training instability immediately visible instead of hiding in loss curves.
+- Single notebook, so the full pipeline from data loading to generated samples reads top to bottom.
+- Runs on Google Colab or any GPU environment with no local setup.
+- Samples the generator at fixed intervals during training, which makes mode collapse and instability visible directly instead of buried in loss curves.
 
 ## What I took away
 
-GAN training is famously unstable, and this project was a hands-on lesson in why: balancing the two networks, choosing normalization and activation details, and reading generated samples as a debugging signal matter as much as the architecture itself.
+GAN training is unstable, and this was a hands-on lesson in why. Balancing the two networks, picking the normalization and activation details, and reading generated samples as a debugging signal mattered as much as the architecture itself.

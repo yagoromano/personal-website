@@ -11,7 +11,17 @@ const projects = defineCollection({
     tags: z.array(z.string()),
     cover: z.string(),
     order: z.number(),
-    gridHidden: z.boolean().optional(),
+
+    /** Featured projects render a full card with cover, badge and outcome. The rest render compact. */
+    featured: z.boolean().optional(),
+    /** Short credential shown over the cover, e.g. "IEEE ICMLA 2025". */
+    badge: z.string().optional(),
+    badgeTone: z.enum(["paper", "current"]).optional(),
+    /** One line of concrete, verifiable result. Scale, hardware, measured effect. */
+    outcome: z.string().optional(),
+    /** Eyebrow label on compact cards. */
+    meta: z.string().optional(),
+
     paper: z
       .object({
         title: z.string(),

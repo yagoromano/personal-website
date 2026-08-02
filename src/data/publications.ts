@@ -1,6 +1,8 @@
 export interface Publication {
   title: string;
   venue: string;
+  /** Compact label for the homepage Research rows. */
+  venueShort: string;
   year: number;
   authors: string[];
   summary: string;
@@ -16,6 +18,7 @@ export const PUBLICATIONS: Publication[] = [
   {
     title: "LLMs as Agentic Cooperative Players in Multiplayer UNO",
     venue: "IEEE International Conference on Machine Learning and Applications (ICMLA)",
+    venueShort: "ICMLA 2025",
     year: 2025,
     authors: ["Yago Romano Martinez", "Jesse Roberts"],
     summary:
@@ -27,6 +30,7 @@ export const PUBLICATIONS: Publication[] = [
   {
     title: "Mitigation of Camouflaged Adversarial Attacks in Autonomous Vehicles: A Case Study Using CARLA Simulator",
     venue: "IEEE International Symposium on Circuits and Systems (ISCAS)",
+    venueShort: "ISCAS 2025",
     year: 2025,
     authors: [
       "Yago Romano Martinez",
@@ -46,6 +50,7 @@ export const PUBLICATIONS: Publication[] = [
     title:
       "Supply Chain Exploitation of Secure ROS 2 Systems: A Proof-of-Concept on Autonomous Platform Compromise via Keystore Exfiltration",
     venue: "IEEE Military Communications Conference (MILCOM)",
+    venueShort: "MILCOM 2025",
     year: 2025,
     authors: [
       "Tahmid Hasan Sakib",

@@ -7,7 +7,10 @@ import Footer from "../../components/Footer.astro";
 const notes = (await getCollection("notes")).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 ---
 
-<BaseLayout title="Notes · Yago Romano">
+<BaseLayout
+  title="Notes · Yago Romano"
+  description="Short write-ups on things I build and learn, covering AI engineering, machine learning, and software."
+>
   <Nav />
   <main class="container notes-page">
     <h1>Notes</h1>

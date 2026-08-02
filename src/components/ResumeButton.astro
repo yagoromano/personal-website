@@ -1,0 +1,26 @@
+---
+import { FileText } from "lucide-astro";
+import { SITE } from "../data/site";
+
+interface Props {
+  variant?: "primary" | "secondary";
+}
+
+const { variant = "primary" } = Astro.props;
+---
+
+<!--
+  Opens the PDF in a new tab rather than forcing a download or embedding it in a
+  modal. The browser's native PDF viewer gives a full-window view with zoom,
+  search, print, and download built in, and it works on mobile browsers that
+  refuse to render PDFs inside an iframe.
+-->
+<a
+  href={SITE.resumeHref}
+  target="_blank"
+  rel="noopener noreferrer"
+  class:list={["btn", { "btn-primary": variant === "primary" }]}
+>
+  <FileText size={18} />
+  View Resume
+</a>

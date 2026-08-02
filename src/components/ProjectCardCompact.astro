@@ -1,0 +1,72 @@
+---
+import { ExternalLink } from "lucide-astro";
+import type { CollectionEntry } from "astro:content";
+
+interface Props {
+  project: CollectionEntry<"projects">;
+}
+
+const { project } = Astro.props;
+const href = `/projects/${project.id}/`;
+const { title, description, meta, repoUrl } = project.data;
+---
+
+<div class="compact-card">
+  {meta && <span class="compact-meta">{meta}</span>}
+  <h3><a href={href} class="compact-title-link">{title}</a></h3>
+  <p class="compact-description">{description}</p>
+  {repoUrl && (
+    <a href={repoUrl} target="_blank" rel="noopener noreferrer" class="project-link compact-link">
+      <ExternalLink size={14} />
+      View on GitHub
+    </a>
+  )}
+</div>
+
+<style>
+  .compact-card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px 22px;
+    transition: border-color 0.2s ease;
+  }
+
+  .compact-card:hover {
+    border-color: var(--accent);
+  }
+
+  .compact-meta {
+    font-family: ui-monospace, "SFMono-Regular", Menlo, monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+
+  .compact-card h3 {
+    font-size: 1.05rem;
+  }
+
+  .compact-title-link {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .compact-title-link:hover {
+    text-decoration: underline;
+  }
+
+  .compact-description {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    line-height: 1.55;
+  }
+
+  .compact-link {
+    font-size: 0.85rem;
+    margin-top: var(--space-1);
+  }
+</style>

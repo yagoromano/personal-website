@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" role="img" aria-label="A containerized desktop environment with UI elements detected and a reward signal feeding back to a training loop">
+  <defs>
+    <linearGradient id="ga-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0c0e12"/>
+      <stop offset="1" stop-color="#151922"/>
+    </linearGradient>
+    <linearGradient id="ga-screen" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1c212b"/>
+      <stop offset="1" stop-color="#141821"/>
+    </linearGradient>
+    <radialGradient id="ga-vignette" cx="0.5" cy="0.45" r="0.75">
+      <stop offset="0.6" stop-color="#000000" stop-opacity="0"/>
+      <stop offset="1" stop-color="#000000" stop-opacity="0.35"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="640" height="360" fill="url(#ga-bg)"/>
+
+  <text x="44" y="52" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="15" fill="#e6e8eb">Containerized desktop · VLM agents</text>
+  <text x="44" y="74" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="13" fill="#5b8cff">deterministic scoring · NeMo RL</text>
+
+  <!-- container boundary (docker-ish dashed box) -->
+  <rect x="44" y="96" width="372" height="216" rx="12" fill="none" stroke="#5b8cff" stroke-opacity="0.45" stroke-dasharray="7 6"/>
+  <text x="56" y="90" font-family="ui-monospace, monospace" font-size="11" fill="#5b8cff">docker sandbox</text>
+
+  <!-- desktop screen inside the container -->
+  <rect x="62" y="112" width="336" height="184" rx="8" fill="url(#ga-screen)" stroke="#ffffff" stroke-opacity="0.10"/>
+  <!-- title bar -->
+  <rect x="62" y="112" width="336" height="20" rx="8" fill="#232936"/>
+  <rect x="62" y="126" width="336" height="6" fill="#232936"/>
+  <circle cx="76" cy="122" r="3.5" fill="#f87171"/>
+  <circle cx="88" cy="122" r="3.5" fill="#fbbf24"/>
+  <circle cx="100" cy="122" r="3.5" fill="#4ade80"/>
+
+  <!-- a browser window with DOM-detected elements -->
+  <rect x="76" y="144" width="180" height="136" rx="6" fill="#171c25" stroke="#ffffff" stroke-opacity="0.08"/>
+  <text x="86" y="160" font-family="ui-monospace, monospace" font-size="9" fill="#6b7280">web app · DOM</text>
+  <g stroke="#4ade80" fill="none" stroke-width="1.5">
+    <rect x="86" y="168" width="72" height="18" rx="3"/>
+    <rect x="86" y="194" width="120" height="18" rx="3"/>
+    <rect x="86" y="220" width="58" height="20" rx="3"/>
+  </g>
+  <rect x="86" y="220" width="58" height="20" rx="3" fill="#4ade80" fill-opacity="0.16"/>
+  <text x="115" y="234" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="9" fill="#4ade80">Submit</text>
+
+  <!-- a native window with OCR-detected text -->
+  <rect x="268" y="164" width="118" height="116" rx="6" fill="#171c25" stroke="#ffffff" stroke-opacity="0.08"/>
+  <text x="278" y="180" font-family="ui-monospace, monospace" font-size="9" fill="#6b7280">native · OCR</text>
+  <g stroke="#fbbf24" fill="none" stroke-width="1.5" stroke-dasharray="3 2">
+    <rect x="278" y="188" width="88" height="15" rx="2"/>
+    <rect x="278" y="210" width="64" height="15" rx="2"/>
+    <rect x="278" y="232" width="76" height="15" rx="2"/>
+  </g>
+
+  <!-- agent cursor with click ripple -->
+  <circle cx="115" cy="230" r="13" fill="none" stroke="#5b8cff" stroke-width="1.5" opacity="0.6"/>
+  <circle cx="115" cy="230" r="21" fill="none" stroke="#5b8cff" stroke-width="1.5" opacity="0.25"/>
+  <path d="M115 230 l0 15 l4 -5 l5 8 l4 -2 l-5 -8 l6 -1 z" fill="#e6e8eb"/>
+
+  <!-- feedback loop to the right: observe -> act -> reward -->
+  <g font-family="ui-monospace, monospace" font-size="11">
+    <!-- screenshot observation -->
+    <rect x="446" y="112" width="150" height="52" rx="8" fill="#1a1d23" stroke="#ffffff" stroke-opacity="0.10"/>
+    <text x="460" y="132" font-size="10" fill="#9aa1ab">observation</text>
+    <text x="460" y="150" font-size="11" fill="#e6e8eb">screenshot + state</text>
+
+    <!-- policy -->
+    <rect x="446" y="176" width="150" height="52" rx="8" fill="#1a1d23" stroke="#5b8cff" stroke-opacity="0.45"/>
+    <text x="460" y="196" font-size="10" fill="#9aa1ab">policy</text>
+    <text x="460" y="214" font-size="11" fill="#5b8cff">VLM agent</text>
+
+    <!-- reward -->
+    <rect x="446" y="240" width="150" height="52" rx="8" fill="#1a1d23" stroke="#4ade80" stroke-opacity="0.45"/>
+    <text x="460" y="260" font-size="10" fill="#9aa1ab">reward</text>
+    <text x="460" y="278" font-size="11" fill="#4ade80">checkpoint passed</text>
+  </g>
+
+  <!-- arrows: screen -> observation, policy -> screen (action), reward loop -->
+  <g stroke="#5b8cff" stroke-width="1.8" fill="none" opacity="0.85">
+    <path d="M400 150 H438 m0 0 l-7 -5 m7 5 l-7 5"/>
+    <path d="M521 164 V172 m0 0 l-4 -6 m4 6 l4 -6"/>
+    <path d="M446 202 H420 Q408 202 408 214 V236 m0 0 l-4 -7 m4 7 l4 -7"/>
+  </g>
+  <g stroke="#4ade80" stroke-width="1.8" fill="none" opacity="0.7">
+    <path d="M521 292 V308 Q521 318 508 318 H468 Q446 318 446 300 V292"/>
+    <path d="M446 296 l-4 7 m4 -7 l4 7"/>
+  </g>
+
+  <rect width="640" height="360" fill="url(#ga-vignette)"/>
+</svg>

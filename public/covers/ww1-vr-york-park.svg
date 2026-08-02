@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" role="img" aria-label="A World War One trench network viewed through a virtual reality headset stereo frame">
+  <defs>
+    <linearGradient id="vr-sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#141821"/>
+      <stop offset="0.6" stop-color="#3a3327"/>
+      <stop offset="1" stop-color="#241f18"/>
+    </linearGradient>
+    <linearGradient id="vr-ground" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#3d3527"/>
+      <stop offset="1" stop-color="#191510"/>
+    </linearGradient>
+    <linearGradient id="vr-trench" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2a2419"/>
+      <stop offset="1" stop-color="#0e0c09"/>
+    </linearGradient>
+    <radialGradient id="vr-sun" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#d9a441" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#d9a441" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="vr-vignette" cx="0.5" cy="0.5" r="0.72">
+      <stop offset="0.55" stop-color="#000000" stop-opacity="0"/>
+      <stop offset="1" stop-color="#000000" stop-opacity="0.6"/>
+    </radialGradient>
+    <!-- stereo lens shape: the scene renders only inside these two rounded ports -->
+    <clipPath id="vr-lenses">
+      <rect x="52" y="96" width="252" height="208" rx="70"/>
+      <rect x="336" y="96" width="252" height="208" rx="70"/>
+    </clipPath>
+  </defs>
+
+  <rect width="640" height="360" fill="#0c0e12"/>
+
+  <g clip-path="url(#vr-lenses)">
+    <rect x="40" y="88" width="560" height="224" fill="url(#vr-sky)"/>
+    <circle cx="320" cy="212" r="120" fill="url(#vr-sun)"/>
+
+    <!-- distant no man's land -->
+    <path d="M40 214 L120 206 L180 212 L250 202 L320 210 L400 200 L470 210 L540 204 L600 212 L600 312 L40 312 Z" fill="url(#vr-ground)"/>
+
+    <!-- barbed wire pickets on the horizon -->
+    <g stroke="#5e5342" stroke-width="2" opacity="0.85">
+      <path d="M92 210 V186 M140 208 V180 M196 210 V184 M262 204 V178 M356 202 V176 M424 206 V180 M492 208 V182 M556 206 V182"/>
+      <path d="M92 192 Q116 200 140 188 Q168 178 196 192 Q230 202 262 186 Q310 172 356 184 Q392 196 424 186 Q458 176 492 190 Q524 200 556 190" fill="none" stroke-width="1.5" opacity="0.75"/>
+      <path d="M92 200 Q116 210 140 198 Q168 190 196 202 Q230 212 262 196 Q310 184 356 194 Q392 206 424 196 Q458 188 492 200 Q524 208 556 200" fill="none" stroke-width="1.5" opacity="0.5"/>
+    </g>
+
+    <!-- shattered trees -->
+    <g fill="#241e15">
+      <path d="M158 212 l6 -44 l4 22 l10 -16 l-6 20 l8 4 l-8 14 z"/>
+      <path d="M470 210 l5 -38 l5 18 l9 -14 l-6 18 l7 4 l-7 12 z"/>
+    </g>
+
+    <!-- trench parapet and interior, foreground -->
+    <path d="M40 258 L140 244 L250 254 L330 242 L430 252 L540 242 L600 252 L600 312 L40 312 Z" fill="url(#vr-trench)"/>
+    <!-- sandbag row along the parapet -->
+    <g fill="#4a4231" opacity="0.9">
+      <ellipse cx="86" cy="252" rx="26" ry="11"/>
+      <ellipse cx="140" cy="247" rx="26" ry="11"/>
+      <ellipse cx="194" cy="250" rx="26" ry="11"/>
+      <ellipse cx="248" cy="254" rx="26" ry="11"/>
+      <ellipse cx="302" cy="246" rx="26" ry="11"/>
+      <ellipse cx="356" cy="245" rx="26" ry="11"/>
+      <ellipse cx="410" cy="250" rx="26" ry="11"/>
+      <ellipse cx="464" cy="248" rx="26" ry="11"/>
+      <ellipse cx="518" cy="244" rx="26" ry="11"/>
+      <ellipse cx="572" cy="249" rx="26" ry="11"/>
+    </g>
+    <g stroke="#0f0d09" stroke-opacity="0.5" stroke-width="1.5" fill="none">
+      <path d="M60 252 h560"/>
+    </g>
+
+    <!-- duckboard planks receding into the trench -->
+    <g stroke="#584c37" stroke-width="3" opacity="0.55">
+      <path d="M250 312 L286 274 M300 312 L322 274 M352 312 L358 274 M404 312 L394 274 M456 312 L430 274"/>
+    </g>
+
+    <rect x="40" y="88" width="560" height="224" fill="url(#vr-vignette)"/>
+  </g>
+
+  <!-- headset frame over the lenses -->
+  <g fill="none" stroke="#2a2f3a" stroke-width="6">
+    <rect x="52" y="96" width="252" height="208" rx="70"/>
+    <rect x="336" y="96" width="252" height="208" rx="70"/>
+  </g>
+  <rect x="298" y="176" width="44" height="48" rx="10" fill="#12151b"/>
+
+  <text x="44" y="52" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="15" fill="#e6e8eb">Unity · VR · six-person team</text>
+  <text x="44" y="74" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="13" fill="#d9a441">Distinguished Design Award</text>
+
+  <text x="596" y="342" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="12" fill="#6b7280">Alvin C. York State Park</text>
+</svg>

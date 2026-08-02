@@ -8,9 +8,11 @@ import { SITE } from "../data/site";
     <a href="/" class="nav-brand">{SITE.name}</a>
     <nav class="nav-links">
       <a href="/#about">About</a>
+      <a href="/#experience">Experience</a>
       <a href="/#projects">Projects</a>
-      <a href="/#publications">Publications</a>
-      <a href="/notes/">Notes</a>
+      <a href="/#research">Research</a>
+      {/* Notes is built and reachable at /notes/ but stays out of the nav
+          until there are a few posts worth surfacing. */}
       <a href="/#contact">Contact</a>
     </nav>
     <ThemeToggle client:load />

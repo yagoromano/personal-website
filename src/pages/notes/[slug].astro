@@ -17,7 +17,11 @@ const { entry } = Astro.props;
 const { Content } = await render(entry);
 ---
 
-<BaseLayout title={`${entry.data.title} · Yago Romano`}>
+<BaseLayout
+  title={`${entry.data.title} · Yago Romano`}
+  description={entry.data.description}
+  ogType="article"
+>
   <Nav />
   <main class="container note-detail">
     <a href="/notes/" class="back-link">

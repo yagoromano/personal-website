@@ -1,19 +1,27 @@
 ---
 import ProjectCard from "./ProjectCard.astro";
+import ProjectCardCompact from "./ProjectCardCompact.astro";
 import { getCollection } from "astro:content";
 
-const projects = (await getCollection("projects"))
-  .filter((p) => !p.data.gridHidden)
-  .sort((a, b) => a.data.order - b.data.order);
+const all = (await getCollection("projects")).sort((a, b) => a.data.order - b.data.order);
+const featured = all.filter((p) => p.data.featured);
+const compact = all.filter((p) => !p.data.featured);
 ---
 
 <section id="projects" class="projects-section">
   <div class="container">
     <h2>Projects</h2>
-    <p class="section-intro">A selection of machine learning and reinforcement learning projects I have built.</p>
-    <div class="project-grid">
-      {projects.map((project) => <ProjectCard project={project} />)}
+    <p class="section-intro">Systems I have built, most significant first. Each one has a write-up covering how it works.</p>
+
+    <div class="project-featured-grid">
+      {featured.map((project) => <ProjectCard project={project} />)}
     </div>
+
+    {compact.length > 0 && (
+      <div class="project-compact-grid">
+        {compact.map((project) => <ProjectCardCompact project={project} />)}
+      </div>
+    )}
   </div>
 </section>
 

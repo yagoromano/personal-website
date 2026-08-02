@@ -1,22 +1,26 @@
 ---
-import ResumeModal from "./ResumeModal";
+import ResumeButton from "./ResumeButton.astro";
 import { SITE } from "../data/site";
 ---
 
 <section id="about" class="hero">
   <div class="container hero-inner">
     <h1>{SITE.name}</h1>
-    <p class="tagline">Software engineer, ML/RL projects, agent tooling.</p>
+    <p class="tagline">{SITE.tagline}</p>
     <p class="bio">
-      I build systems that sit at the intersection of machine learning and practical
-      software engineering, from reinforcement learning agents to production tool
-      layers for AI assistants. This site is itself built with Astro and React
-      islands, hydrating only the interactive pieces and shipping everything else
-      as static markup.
+      I build agentic AI systems end to end, from multimodal VLM benchmarks and
+      reinforcement learning training pipelines to production LLM applications that
+      plug into real enterprise workflows. Currently an AI Engineering Intern at HCA
+      Healthcare, with an M.S. in computer science and three IEEE papers across LLM
+      agents, autonomous vehicle perception, and robotics security.
+    </p>
+    <p class="now">
+      <span class="now-dot" aria-hidden="true"></span>
+      Right now: building the environment that trains and grades vision-language model agents on real desktop software.
     </p>
     <div class="cta-row">
       <a href="#projects" class="btn btn-primary">View Projects</a>
-      <ResumeModal client:load />
+      <ResumeButton />
       <a href="#contact" class="btn">Contact</a>
     </div>
   </div>
@@ -48,6 +52,24 @@ import { SITE } from "../data/site";
   .bio {
     color: var(--text-muted);
     font-size: 1.05rem;
+  }
+
+  /* One line of current momentum. A resume PDF cannot show what I am on this week. */
+  .now {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    color: var(--text-muted);
+    font-size: 0.9rem;
+  }
+
+  .now-dot {
+    flex-shrink: 0;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background-color: var(--accent-live);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent-live) 20%, transparent);
   }
 
   .cta-row {

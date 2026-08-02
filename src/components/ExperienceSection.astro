@@ -1,0 +1,160 @@
+---
+import { ArrowRight } from "lucide-astro";
+import { EXPERIENCE } from "../data/experience";
+---
+
+<section id="experience" class="experience-section">
+  <div class="container">
+    <h2>Experience</h2>
+    <p class="section-intro">Where I have worked and what I built there.</p>
+    <ol class="role-list">
+      {EXPERIENCE.map((role) => (
+        <li class:list={["role-item", { "role-item-current": role.current }]}>
+          <div class="role-head">
+            <h3 class="role-title">
+              {role.title}
+              <span class="role-company">{role.company}</span>
+            </h3>
+            <div class="role-meta">
+              <span class:list={["role-period", { "role-period-current": role.current }]}>
+                {role.period}
+              </span>
+              <span class="role-location">{role.location}</span>
+            </div>
+          </div>
+          <p class="role-summary">{role.summary}</p>
+          {role.links && (
+            <div class="role-links">
+              {role.links.map((link) => (
+                <a href={link.href} class="role-link">
+                  <ArrowRight size={15} />
+                  {link.label}
+                </a>
+              ))}
+            </div>
+          )}
+        </li>
+      ))}
+    </ol>
+  </div>
+</section>
+
+<style>
+  h2 {
+    font-size: 2rem;
+    margin-bottom: var(--space-2);
+  }
+
+  .section-intro {
+    color: var(--text-muted);
+    margin-bottom: var(--space-5);
+  }
+
+  .role-list {
+    list-style: none;
+    margin: 0;
+    padding: 0 0 0 var(--space-4);
+    border-left: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+  }
+
+  .role-item {
+    position: relative;
+  }
+
+  /* timeline node */
+  .role-item::before {
+    content: "";
+    position: absolute;
+    left: calc(-1 * var(--space-4) - 5px);
+    top: 7px;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background-color: var(--bg);
+    border: 2px solid var(--border);
+  }
+
+  .role-item-current::before {
+    background-color: var(--accent);
+    border-color: var(--accent);
+  }
+
+  .role-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: var(--space-3);
+    flex-wrap: wrap;
+  }
+
+  .role-title {
+    font-size: 1.1rem;
+    font-family: var(--font-display);
+    line-height: 1.3;
+  }
+
+  .role-company {
+    display: block;
+    color: var(--accent);
+    font-size: 0.95rem;
+    font-weight: 400;
+    margin-top: 2px;
+  }
+
+  .role-meta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 2px;
+    flex-shrink: 0;
+  }
+
+  .role-period {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+  }
+
+  .role-period-current {
+    color: var(--text);
+  }
+
+  .role-location {
+    color: var(--text-muted);
+    font-size: 0.8rem;
+  }
+
+  .role-summary {
+    margin-top: var(--space-2);
+    color: var(--text-muted);
+    line-height: 1.65;
+  }
+
+  .role-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-4);
+    margin-top: var(--space-3);
+  }
+
+  .role-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--accent);
+    font-size: 0.9rem;
+    text-decoration: none;
+  }
+
+  .role-link:hover {
+    text-decoration: underline;
+  }
+
+  @media (max-width: 560px) {
+    .role-meta {
+      align-items: flex-start;
+    }
+  }
+</style>

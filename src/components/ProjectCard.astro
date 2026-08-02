@@ -8,31 +8,34 @@ interface Props {
 
 const { project } = Astro.props;
 const href = `/projects/${project.id}/`;
+const { title, description, cover, tags, badge, badgeTone, outcome, repoUrl, demoUrl } = project.data;
 ---
 
 <div class="project-card">
-  <a href={href}>
-    <img src={project.data.cover} alt={`${project.data.title} illustration`} loading="lazy" class="project-cover" />
+  <a href={href} class="cover-link">
+    <img src={cover} alt={`${title} illustration`} loading="lazy" class="project-cover" />
+    {badge && <span class:list={["card-badge", badgeTone === "current" && "card-badge-current"]}>{badge}</span>}
   </a>
   <div class="project-card-body">
-    <h3><a href={href} class="project-title-link">{project.data.title}</a></h3>
-    <p class="project-description">{project.data.description}</p>
+    <h3><a href={href} class="project-title-link">{title}</a></h3>
+    <p class="project-description">{description}</p>
+    {outcome && <p class="project-outcome">{outcome}</p>}
     <div class="project-tags">
-      {project.data.tags.map((tag) => <span class="tag-chip">{tag}</span>)}
+      {tags.map((tag) => <span class="tag-chip">{tag}</span>)}
     </div>
     <div class="project-links">
       <a href={href} class="project-link">
         <ArrowRight size={16} />
-        Read More
+        Read the write-up
       </a>
-      {project.data.repoUrl && (
-        <a href={project.data.repoUrl} target="_blank" rel="noopener noreferrer" class="project-link">
+      {repoUrl && (
+        <a href={repoUrl} target="_blank" rel="noopener noreferrer" class="project-link">
           <ExternalLink size={16} />
           View on GitHub
         </a>
       )}
-      {project.data.demoUrl && (
-        <a href={project.data.demoUrl} target="_blank" rel="noopener noreferrer" class="project-link">
+      {demoUrl && (
+        <a href={demoUrl} target="_blank" rel="noopener noreferrer" class="project-link">
           Live Demo
         </a>
       )}
@@ -41,6 +44,36 @@ const href = `/projects/${project.id}/`;
 </div>
 
 <style>
+  .cover-link {
+    position: relative;
+    display: block;
+  }
+
+  .card-badge {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--accent);
+    background-color: color-mix(in srgb, var(--accent) 16%, var(--bg-elevated));
+    border: 1px solid color-mix(in srgb, var(--accent) 35%, transparent);
+    border-radius: 999px;
+    padding: 3px 11px;
+  }
+
+  .card-badge-current {
+    color: var(--accent-live);
+    background-color: color-mix(in srgb, var(--accent-live) 16%, var(--bg-elevated));
+    border-color: color-mix(in srgb, var(--accent-live) 35%, transparent);
+  }
+
+  .project-card h3 {
+    font-size: 1.25rem;
+  }
+
   .project-title-link {
     color: inherit;
     text-decoration: none;
@@ -48,5 +81,15 @@ const href = `/projects/${project.id}/`;
 
   .project-title-link:hover {
     text-decoration: underline;
+  }
+
+  /* The concrete result the one-line description leaves out. */
+  .project-outcome {
+    font-family: ui-monospace, "SFMono-Regular", Menlo, monospace;
+    font-size: 0.78rem;
+    line-height: 1.55;
+    color: var(--text-muted);
+    border-left: 2px solid color-mix(in srgb, var(--accent) 40%, transparent);
+    padding-left: var(--space-3);
   }
 </style>

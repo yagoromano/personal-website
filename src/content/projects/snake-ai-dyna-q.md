@@ -4,7 +4,8 @@ description: "Classic Snake game implemented with the Dyna-Q reinforcement learn
 repoUrl: "https://github.com/yagoromano/snake-ai-dyna-q"
 tags: ["Python", "Reinforcement Learning"]
 cover: "/covers/snake-ai-dyna-q.svg"
-order: 4
+order: 5
+meta: "Reinforcement Learning"
 ---
 
 ## What it is
@@ -13,7 +14,7 @@ A reinforcement learning agent that teaches itself to play the classic Snake gam
 
 ## Why Dyna-Q
 
-Plain Q-learning only learns from moves the agent actually makes, which is slow when useful experiences are rare. Dyna-Q adds a planning step: the agent builds an internal model of the environment from real experience, then replays simulated transitions from that model between real moves. Each real step gets amplified into many learning updates, which noticeably speeds up and stabilizes training.
+Plain Q-learning only learns from moves the agent actually makes, which is slow when useful experiences are rare. Dyna-Q adds a planning step: the agent builds a model of the environment from real experience, then replays simulated transitions from that model between real moves. Each real step turns into many learning updates, which speeds up and stabilizes training.
 
 ## How it is built
 
@@ -26,4 +27,4 @@ Hyperparameters like the learning rate, discount factor, exploration rate, and n
 
 ## What I took away
 
-This project made the exploration-exploitation tradeoff and the value of model-based planning concrete. Watching the same agent train with zero planning steps versus fifty is the clearest demonstration I know of why Dyna-style architectures matter.
+This made the exploration-exploitation tradeoff and the value of model-based planning concrete. Running the same agent with zero planning steps versus fifty shows why the planning step matters more clearly than any explanation.
