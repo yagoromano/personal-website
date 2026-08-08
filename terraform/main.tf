@@ -1,5 +1,18 @@
 terraform {
   required_version = ">= 1.5"
+
+  # Remote state in HCP Terraform. State holds every resource attribute in
+  # plaintext, so it is gitignored and previously lived only on one laptop -
+  # losing that machine meant losing Terraform's record of these resources.
+  # This workspace runs in Local execution mode: HCP stores and locks the
+  # state, but plan/apply still run here against local gcloud credentials.
+  cloud {
+    organization = "yagoromano"
+    workspaces {
+      name = "personal-website"
+    }
+  }
+
   required_providers {
     google = {
       source  = "hashicorp/google"
