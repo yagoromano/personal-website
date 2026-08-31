@@ -5,14 +5,12 @@ tags: ["Python", "Docker", "VLM Agents", "Reinforcement Learning", "NeMo RL"]
 cover: "/covers/gui-agent-benchmark.svg"
 order: 0
 featured: true
-badge: "Current work"
-badgeTone: "current"
 outcome: "Containerized Linux desktop · deterministic checkpoint scoring · NeMo RL rollouts"
 ---
 
 ## What it is
 
-An internal benchmark platform I built and maintain at HCA Healthcare for evaluating multimodal vision-language model agents. These are agents that get a goal in plain language and have to accomplish it by operating a computer directly, clicking, typing, and reading the screen the way a person would.
+An internal benchmark platform I built at HCA Healthcare for evaluating multimodal vision-language model agents. These are agents that get a goal in plain language and have to accomplish it by operating a computer directly, clicking, typing, and reading the screen the way a person would.
 
 It later became a reinforcement learning environment for training those agents, not just scoring them.
 
