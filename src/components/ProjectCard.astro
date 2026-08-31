@@ -52,7 +52,10 @@ const { title, description, cover, tags, badge, badgeTone, outcome, repoUrl, dem
   .card-badge {
     position: absolute;
     top: 14px;
-    left: 14px;
+    /* Right, not left: several covers draw their own labels in the top-left
+       corner (carla and supply-chain-sros2 both start text at x=44,y~52 in a
+       640x360 viewBox), and the badge sat straight on top of them. */
+    right: 14px;
     font-size: 0.7rem;
     font-weight: 600;
     letter-spacing: 0.05em;

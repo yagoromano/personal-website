@@ -5,6 +5,7 @@ tags: ["Python", "Docker", "VLM Agents", "Reinforcement Learning", "NeMo RL"]
 cover: "/covers/gui-agent-benchmark.svg"
 order: 0
 featured: true
+badge: "HCA Healthcare"
 outcome: "Containerized Linux desktop · deterministic checkpoint scoring · NeMo RL rollouts"
 ---
 
